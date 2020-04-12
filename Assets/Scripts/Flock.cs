@@ -18,8 +18,8 @@ public class Flock : MonoBehaviour
     public float maxSpeed = 5f;
     [Range(1f, 10f)]
     public float neighborRadius = 1.5f;
-    [Range(0f, 1f)]
-    public float avoidanceRadiusMultiplier = 0.5f;
+    [Range(1f, 2f)]
+    public float avoidanceRadiusMultiplier = 1.0f;
 
     float squareMaxSpeed;
     float squareNeighborRadius;
@@ -59,7 +59,7 @@ public class Flock : MonoBehaviour
 
             //FOR DEMO ONLY
             //agent.GetComponentInChildren<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, context.Count / 6f);
-
+            
             Vector2 move = behavior.CalculateMove(agent, context, this);
             move *= driveFactor;
             if (move.sqrMagnitude > squareMaxSpeed)
